@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru-ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- <title>{{ page.title }}</title> -->
+
+    {% block links %}
+    <link rel="stylesheet" href="{% static 'main/css/main.css' %}" type="text/css">
+    <!-- <link rel="shortcut icon" href="{{ page.icon.url }}" type="image/x-icon"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    {% endblock %}
+</head>
+<body>
+
+<div class="main container-outer">
+<div class="main container-inner scroll-container">
+    {% block content %}{% endblock %}
+</div>
+</div>
+
+{% block scripts %}
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+{% endblock %}
+
+</body>
+</html>
