@@ -1,0 +1,163 @@
+body {
+    margin: 0;
+    font-family: 'Cascadia Code SemiBold', sans-serif;
+}
+
+.page {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+}
+
+.half-page {
+    position: relative;
+    height: 50vh;
+    width: 100vw;
+}
+
+.page.head {
+    background-color: #212121;
+}
+
+.page.head .image {
+    position: absolute;
+
+    top: 2vh;
+    left: 1vw;
+
+    width: 49vw;
+    height: 96vh;
+
+    background: url("../img/background.jpg") no-repeat center left;
+    background-size: auto 150%;
+}
+
+.page.head .gradient {
+    position: absolute;
+
+    top: 0;
+    left: 24vw;
+
+    width: 74vw;
+    height: 96vh;
+
+    background-image: linear-gradient(to right, transparent, darkred 30%, darkred);
+}
+
+.page.head .text-container {
+    position: absolute;
+
+    background: #212121;
+
+    top: 65vh;
+    left: 59vw;
+
+    width: 36vw;
+    height: 25vh;
+
+    padding: 2vh 1vw;
+}
+
+.page.head .text-container h2, p {
+    margin: 0;
+    color: #c4dce8;
+
+    text-align: right;
+}
+
+.page.head .main-title {
+    background: url("../img/title.png") no-repeat bottom right;
+    background-size: 100% auto;
+
+    position: absolute;
+
+    left: 15vw;
+    top: 0;
+
+    width: 83vw;
+    height: 83vh;
+}
+
+.main-title h1 {
+    margin: 0;
+}
+
+.page.map {
+    background: #212121;
+}
+
+.page.map .map-container {
+    background: url("../img/map.png") no-repeat center center;
+    background-size: 100% 100%;
+
+    position: absolute;
+
+    left: 1vw;
+    top: 2vh;
+
+    width: 98vw;
+    height: 96vh;
+}
+
+.half-page.foot {
+    background-color: darkred;
+}
+
+.half-page.foot h1 {
+    margin: 0;
+    text-align: center;
+    color: #212121;
+
+    position: absolute;
+    top: 2vh;
+
+    width: 100vw;
+}
+
+.contacts-row {
+    display: flex;
+    justify-content: space-between;
+
+    position: absolute;
+    width: 98vw;
+    height: 38vh;
+
+    top: 10vh;
+    left: 1vw;
+}
+
+.contacts-row .contact {
+    background-color: #212121;
+    position: relative;
+
+    height: 38vh;
+    width: 32vw;
+}
+
+.contacts-row .contact .qr {
+    object-fit: contain;
+    position: absolute;
+
+    top: 2vh;
+    left: 1vw;
+
+    width: 16vw;
+    height: 34vh;
+}
+
+.contacts-row .contact h2 {
+    color: #c4dce8;
+    margin: 0;
+
+    text-align: right;
+    position: relative;
+    top: 2vh;
+    right: 1vw;
+}
+
+@font-face {
+  font-family: "Cascadia Code SemiBold";
+  src: url("../fonts/Cascadia Code Semibold 600.otf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}

@@ -1,0 +1,61 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en-us" style="background-image: url('{{ page.background_image.url }}')">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{{ page.title }}</title>
+
+    {% block links %}
+    <link rel="stylesheet" href="{% static 'main/css/main.css' %}" type="text/css">
+    <link rel="shortcut icon" href="{{ page.icon.url }}" type="image/x-icon">
+    {% endblock %}
+</head>
+<body>
+
+<div class="page head">
+    <div class="image">
+        <div class="gradient"></div>
+        <div class="main-title"></div>
+        <div class="text-container">
+            <h2>Проект по Основам Российской Государственности</h2>
+            <hr>
+            <p>студентов ФКН НИУ ВШЭ Бородулина Арсения, Марченко Артёма, Шиляева Даниила</p>
+        </div>
+    </div>
+</div>
+
+<div class="page map">
+    <div class="map-container">
+
+    </div>
+</div>
+
+<div class="half-page foot">
+    <h1>Обратная связь:</h1>
+    <div class="contacts-row">
+        <div class="contact">
+            <img src="{% static 'main/img/qrs/persik.png' %}" alt="m3tr0" class="qr"/>
+            <h2 class="name">Бородулин</h2>
+            <h2 class="name">Арсений</h2>
+        </div>
+        <div class="contact">
+            <img src="{% static 'main/img/qrs/m3tr0.png' %}" alt="m3tr0" class="qr"/>
+            <h2 class="name">Марченко</h2>
+            <h2 class="name">Артём</h2>
+        </div>
+        <div class="contact">
+            <img src="{% static 'main/img/qrs/daniel.png' %}" alt="m3tr0" class="qr"/>
+            <h2 class="name">Шиляев</h2>
+            <h2 class="name">Даниил</h2>
+        </div>
+    </div>
+</div>
+
+{% block scripts %}
+<!-- <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+{% endblock %}
+
+</body>
+</html>

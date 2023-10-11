@@ -4,4 +4,4 @@ from main.models import *
 
 
 class HelloWorld(TemplateView):
-    template_name = 'main/hello_world.html'
+    template_name = 'main/main.html'
