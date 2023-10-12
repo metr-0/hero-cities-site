@@ -3,6 +3,10 @@ body {
     font-family: 'Cascadia Code SemiBold', sans-serif;
 }
 
+a {
+    text-decoration: none;
+}
+
 .page {
     position: relative;
     height: 100vh;
@@ -51,6 +55,8 @@ body {
 
     top: 65vh;
     left: 59vw;
+
+    min-height: 100px;
 
     width: 36vw;
     height: 25vh;
