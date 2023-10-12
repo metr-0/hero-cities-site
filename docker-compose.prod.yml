@@ -7,14 +7,14 @@ services:
       - static:/home/app/web/static
       - media:/home/app/web/media
     ports:
-      - "8000:80"
+      - "8001:80"
     depends_on:
       - web
   web:
     build:
       context: ./app
       dockerfile: ./Dockerfile.prod
-    command: gunicorn personal_site.wsgi:application --bind 0.0.0.0:8000
+    command: gunicorn hero_cities_site.wsgi:application --bind 0.0.0.0:8000
     volumes:
       - static:/home/app/web/static
       - media:/home/app/web/media
