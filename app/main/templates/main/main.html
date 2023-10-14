@@ -1,49 +1,110 @@
 {% extends 'main/base.html' %}
 {% load static %}
 
+
 {% block content %}
-{{ block.super }}
-<div class="page head">
-    <div class="image">
-        <div class="gradient"></div>
-        <div class="main-title"></div>
-        <div class="text-container">
-            <h2>Проект по Основам Российской Государственности</h2>
-            <hr>
-            <p>студентов ФКН НИУ ВШЭ Бородулина Арсения, Марченко Артёма, Шиляева Даниила</p>
+    {{ block.super }}
+    <div class="page head">
+        <div class="image">
+            <div class="gradient"></div>
+            <div class="main-title"></div>
+            <div class="text-container">
+                <h2>Проект по Основам Российской Государственности</h2>
+                <hr>
+                <p>студентов ФКН НИУ ВШЭ Бородулина Арсения, Марченко Артёма, Шиляева Даниила</p>
+            </div>
         </div>
     </div>
-</div>
 
-<div class="page map">
-    <div class="map-container">
+    <div class="page map">
+        <div class="map-container">
 
+        </div>
     </div>
-</div>
 
-<div class="half-page foot">
-    <h1>Обратная связь:</h1>
-    <div class="contacts-row">
-        <a href="https://t.me/owouwuwuowo" class="contact" id="persik">
-            <img src="{% static 'main/img/qrs/persik.png' %}" alt="m3tr0" class="qr"/>
-            <h2 class="name">Бородулин</h2>
-            <h2 class="name">Арсений</h2>
-        </a>
-        <a href="http://m3tr0.ru" class="contact" id="m3tr0">
-            <img src="{% static 'main/img/qrs/m3tr0.png' %}" alt="m3tr0" class="qr"/>
-            <h2 class="name">Марченко</h2>
-            <h2 class="name">Артём</h2>
-        </a>
-        <a href="https://t.me/demonbiker14" class="contact" id="daniel">
-            <img src="{% static 'main/img/qrs/daniel.png' %}" alt="m3tr0" class="qr"/>
-            <h2 class="name">Шиляев</h2>
-            <h2 class="name">Даниил</h2>
-        </a>
+    <div class="half-page foot">
+        <h1>Обратная связь:</h1>
+        <div class="contacts-row">
+            <a href="https://t.me/owouwuwuowo" class="contact" id="persik">
+                <img src="{% static 'main/img/qrs/persik.png' %}" alt="m3tr0" class="qr"/>
+                <h2 class="name">Бородулин</h2>
+                <h2 class="name">Арсений</h2>
+            </a>
+            <a href="http://m3tr0.ru" class="contact" id="m3tr0">
+                <img src="{% static 'main/img/qrs/m3tr0.png' %}" alt="m3tr0" class="qr"/>
+                <h2 class="name">Марченко</h2>
+                <h2 class="name">Артём</h2>
+            </a>
+            <a href="https://t.me/demonbiker14" class="contact" id="daniel">
+                <img src="{% static 'main/img/qrs/daniel.png' %}" alt="m3tr0" class="qr"/>
+                <h2 class="name">Шиляев</h2>
+                <h2 class="name">Даниил</h2>
+            </a>
+        </div>
     </div>
-</div>
 {% endblock %}
 
 {% block scripts %}
-{{ block.super }}
-<script type="text/javascript" src="{% static 'main/js/contact.js' %}"></script>
+    {{ block.super }}
+    <script type="text/javascript" src="{% static 'main/js/contact.js' %}"></script>
+    <script type="application/javascript">
+        let data = {
+            cities: [
+                {
+                    id: 0,
+                    name: "Mocква",
+                    x: 55.7,
+                    y: 37.6,
+                },
+                {
+                    id: 1,
+                    name: "Санкт-Петербург",
+                    x: 59.57,
+                    y: 30.19,
+                },
+                {
+                    name: "Екатеринбург",
+                    x: 56.5,
+                    y: 60.35,
+                }
+            ]
+        }
+
+        async function initMap() {
+            ymaps.ready(() => {
+                const body = document.body;
+                const map_elem = document.getElementsByClassName('map-container')[0];
+                const map_wrapper = document.querySelector('.page.map');
+                map_wrapper.width = body.innerWidth;
+                map_wrapper.height = body.innerHeight;
+                const map = new ymaps.Map(map_elem, {
+                    center: [55.7, 37.6],
+                    zoom: 3,
+                    type: 'yandex#map',
+                    // Карта будет создана без
+                    // элементов управления.
+                    controls: []
+                });
+                for (const city of data.cities) {
+                    // Создание геообъекта с типом точка (метка).
+                    let myGeoObject = new ymaps.Placemark([city.x, city.y], {
+                            iconCaption: city.name,
+                        }
+                        , {
+                            // Отключаем кнопку закрытия балуна.
+                            balloonCloseButton: false,
+                            // Балун будем открывать и закрывать кликом по иконке метки.
+                            hideIconOnBalloonOpen: false
+                        });
+                    myGeoObject.events.add('click',(event)=>{
+                        window.open(`/${city.id}`, "_blank");
+                    });
+
+                    map.geoObjects.add(myGeoObject);
+                }
+            });
+        }
+
+        initMap()
+    </script>
 {% endblock %}

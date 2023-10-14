@@ -90,6 +90,10 @@ a {
 
 .page.map {
     background: #212121;
+    width: calc(100vw - 40px);
+    height: calc(100vh - 40px);
+    padding: 20px;
+
 }
 
 .page.map .map-container {
