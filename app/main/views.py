@@ -1,7 +1,13 @@
 from django.views.generic import *
 
-from main.models import *
+import main.models
 
 
 class HelloWorld(TemplateView):
     template_name = 'main/main.html'
+
+
+class CityDetail(DetailView):
+    model = main.models.City
+    context_object_name = "city"
+    template_name = "main/city_detail.html"
