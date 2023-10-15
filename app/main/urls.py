@@ -7,4 +7,5 @@ app_name = "main"
 urlpatterns = [
     path('', HelloWorld.as_view(), name='hello_world'),
     path('<int:pk>', CityDetail.as_view(), name='city_detail'),
+    path("api/cities", GetCities.as_view(), name="cities_json"),
 ]

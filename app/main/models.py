@@ -1,7 +1,21 @@
 from django.db import models
 
 
+class CityManager(models.Manager):
+    def points(self):
+        return (
+            self.get_queryset()
+            .values(
+                City.name.field.name,
+                City.lantitude.field.name,
+                City.longtitude.field.name,
+            )
+        )
+
+
 class City(models.Model):
+    objects = CityManager()
+
     name = models.CharField(
         verbose_name="название",
         max_length=49,
