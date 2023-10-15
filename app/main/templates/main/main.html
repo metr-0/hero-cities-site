@@ -72,7 +72,7 @@
         }
 
         async function initMap() {
-            ymaps.ready(() => {
+            ymaps.ready( async () => {
                 const map_elem = document.getElementsByClassName('map-container')[0];
                 const map_wrapper = document.querySelector('.page.map');
                 map_elem.style.width = map_wrapper.clientWidth;
@@ -85,7 +85,10 @@
                     // элементов управления.
                     controls: []
                 });
-                for (const city of data.cities) {
+                let result = await fetch('/api/cities');
+
+                let data = (await result.json()).data;
+                for (const city of data) {
                     // Создание геообъекта с типом точка (метка).
                     let myGeoObject = new ymaps.Placemark([city.x, city.y], {
                             iconCaption: city.name,
@@ -103,6 +106,7 @@
                     map.geoObjects.add(myGeoObject);
                 }
             });
+
         }
 
         initMap()

@@ -1,5 +1,6 @@
 from django.views.generic import *
-
+from django.views import View
+from django.http import JsonResponse
 import main.models
 
 
@@ -13,12 +14,12 @@ class CityDetail(DetailView):
     template_name = "main/city_detail.html"
 
 
-class GetCities(TemplateView):
+class GetCities(View):
     template_name = "main/api.html"
 
-    def get_context_data(self, **kwargs):
-        context = {
+
+    def get(self, request):
+        return JsonResponse({
             "data": list(main.models.City.objects.points()),
-        }
-        return context
+        }, json_dumps_params={'ensure_ascii': False})
 

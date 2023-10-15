@@ -3,14 +3,16 @@ from django.db import models
 
 class CityManager(models.Manager):
     def points(self):
-        return (
-            self.get_queryset()
-            .values(
-                City.name.field.name,
-                City.lantitude.field.name,
-                City.longtitude.field.name,
-            )
-        )
+        return [
+            {
+                'id': city.id,
+                'name': city.name,
+                'x': float(city.lantitude),
+                'y': float(city.longtitude),
+
+            } for city in self.get_queryset()
+
+        ]
 
 
 class City(models.Model):
@@ -42,4 +44,3 @@ class City(models.Model):
     class Meta:
         verbose_name = 'Город'
         verbose_name_plural = 'Города'
-
