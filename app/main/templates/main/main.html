@@ -63,6 +63,7 @@
                     y: 30.19,
                 },
                 {
+                    id: 2,
                     name: "Екатеринбург",
                     x: 56.5,
                     y: 60.35,
@@ -72,14 +73,13 @@
 
         async function initMap() {
             ymaps.ready(() => {
-                const body = document.body;
                 const map_elem = document.getElementsByClassName('map-container')[0];
                 const map_wrapper = document.querySelector('.page.map');
-                map_wrapper.width = body.innerWidth;
-                map_wrapper.height = body.innerHeight;
+                map_elem.style.width = map_wrapper.clientWidth;
+                map_elem.style.height = map_wrapper.clientHeight;
                 const map = new ymaps.Map(map_elem, {
-                    center: [55.7, 37.6],
-                    zoom: 3,
+                    center: [55.7, 47.6],
+                    zoom: 5,
                     type: 'yandex#map',
                     // Карта будет создана без
                     // элементов управления.
@@ -96,9 +96,9 @@
                             // Балун будем открывать и закрывать кликом по иконке метки.
                             hideIconOnBalloonOpen: false
                         });
-                    myGeoObject.events.add('click',(event)=>{
+                    myGeoObject.events.add('click', (event) => {
                         window.open(`/${city.id}`, "_blank");
-                    });
+                    })
 
                     map.geoObjects.add(myGeoObject);
                 }
