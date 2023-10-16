@@ -49,7 +49,7 @@ async function initMap() {
                 }
             );
             myGeoObject.events.add('click', (event) => {
-                window.open(`/${city.id}`, "_blank");
+                window.open(`/${city.id}`, '_current');
             })
 
             map.geoObjects.add(myGeoObject);
