@@ -109,6 +109,16 @@ a {
     height: 96vh;
 }
 
+.page.map .map-view {
+    position: absolute;
+
+    left: 2vw;
+    top: 4vh;
+
+    width: 94vw;
+    height: 88vh;
+}
+
 .half-page.foot {
     background-color: darkred;
 }

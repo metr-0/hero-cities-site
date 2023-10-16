@@ -1,7 +1,6 @@
 {% extends 'main/base.html' %}
 {% load static %}
 
-
 {% block content %}
     {{ block.super }}
     <div class="page head">
@@ -18,7 +17,7 @@
 
     <div class="page map">
         <div class="map-container">
-
+            <div class="map-view"></div>
         </div>
     </div>
 
@@ -46,69 +45,7 @@
 
 {% block scripts %}
     {{ block.super }}
-    <script type="text/javascript" src="{% static 'main/js/contact.js' %}"></script>
-    <script type="application/javascript">
-        let data = {
-            cities: [
-                {
-                    id: 0,
-                    name: "Mocква",
-                    x: 55.7,
-                    y: 37.6,
-                },
-                {
-                    id: 1,
-                    name: "Санкт-Петербург",
-                    x: 59.57,
-                    y: 30.19,
-                },
-                {
-                    id: 2,
-                    name: "Екатеринбург",
-                    x: 56.5,
-                    y: 60.35,
-                }
-            ]
-        }
-
-        async function initMap() {
-            ymaps.ready( async () => {
-                const map_elem = document.getElementsByClassName('map-container')[0];
-                const map_wrapper = document.querySelector('.page.map');
-                map_elem.style.width = map_wrapper.clientWidth;
-                map_elem.style.height = map_wrapper.clientHeight;
-                const map = new ymaps.Map(map_elem, {
-                    center: [55.7, 47.6],
-                    zoom: 5,
-                    type: 'yandex#map',
-                    // Карта будет создана без
-                    // элементов управления.
-                    controls: []
-                });
-                let result = await fetch('/api/cities');
-
-                let data = (await result.json()).data;
-                for (const city of data) {
-                    // Создание геообъекта с типом точка (метка).
-                    let myGeoObject = new ymaps.Placemark([city.x, city.y], {
-                            iconCaption: city.name,
-                        }
-                        , {
-                            // Отключаем кнопку закрытия балуна.
-                            balloonCloseButton: false,
-                            // Балун будем открывать и закрывать кликом по иконке метки.
-                            hideIconOnBalloonOpen: false
-                        });
-                    myGeoObject.events.add('click', (event) => {
-                        window.open(`/${city.id}`, "_blank");
-                    })
-
-                    map.geoObjects.add(myGeoObject);
-                }
-            });
-
-        }
-
-        initMap()
-    </script>
+    <script type="application/javascript" src="https://api-maps.yandex.ru/2.1/?apikey=84581bbc-3c76-4aac-a548-b25c7c57fda4&lang=ru_RU"></script>
+    <script type="application/javascript" src="{% static 'main/js/contact.js' %}"></script>
+    <script type="application/javascript" src="{% static 'main/js/map.js' %}"></script>
 {% endblock %}
