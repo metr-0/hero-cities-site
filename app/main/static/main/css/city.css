@@ -1,0 +1,73 @@
+.city-page {
+    display: flex;
+}
+
+.city-container {
+    background-color: #212121;
+
+    position: relative;
+
+    width: 94vw;
+    height: 100vh;
+}
+
+.back-button {
+    background-color: darkred;
+
+    position: relative;
+
+    width: 6vw;
+    height: 100vh;
+}
+
+.photo-container {
+    background: url("../img/map.png") no-repeat center center;
+    background-size: 100% 100%;
+    overflow: hidden;
+    position: absolute;
+}
+
+.photo-container.new {
+    width: 30vw;
+    height: 40vh;
+
+    left: 2vw;
+    top: 4vh;
+}
+
+.photo-container.old {
+    width: 50vw;
+    height: 50vh;
+
+    left: 42vw;
+    top: 46vh;
+}
+
+.photo-container .photo {
+    object-fit: contain;
+    position: relative;
+}
+
+.photo-container .photo.old {
+    left: 1vw;
+    top: 2vh;
+
+    width: 48vw;
+    height: 46vh;
+}
+
+.photo-container .photo.new {
+    left: 1vw;
+    top: 2vh;
+
+    width: 28vw;
+    height: 36vh;
+}
+
+h1.name {
+    color: #c4dce8;
+    position: absolute;
+
+    left: 60vw;
+    top: 2vh;
+}

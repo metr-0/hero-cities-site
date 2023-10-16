@@ -1,11 +1,25 @@
 {% extends 'main/base.html' %}
 {% load static %}
 
+{% block links %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'main/css/city.css' %}" type="text/css">
+{% endblock %}
+
 {% block content %}
 {{ block.super }}
-<div class="main-photo">
-
-</div>
+    <div class="city-page">
+        <div class="city-container">
+            <h1 class="name">{{ city.name }}</h1>
+            <div class="photo-container old">
+                <img class="photo old" src="{% static 'main/img/background.jpg' %}" alt="hmm"/>
+            </div>
+            <div class="photo-container new">
+                <img class="photo new" src="{% static 'main/img/background.jpg' %}" alt="hmm"/>
+            </div>
+        </div>
+        <a href="/#map" class="back-button"></a>
+    </div>
 {% endblock %}
 
 {% block scripts %}
