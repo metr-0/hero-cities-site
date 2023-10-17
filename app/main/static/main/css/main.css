@@ -10,58 +10,52 @@ a {
 .page {
     position: relative;
     height: 100vh;
-    width: 100vw;
-}
-
-.half-page {
-    position: relative;
-    height: 50vh;
-    width: 100vw;
+    width: 100%;
 }
 
 .page.head {
     background-color: #212121;
+    box-sizing: border-box;
+    padding: 10px;
 }
 
 .page.head .image {
-    position: absolute;
-
-    top: 2vh;
-    left: 1vw;
-
-    width: 49vw;
-    height: 96vh;
-
     background: url("../img/background.jpg") no-repeat center left;
-    background-size: auto 150%;
+    background-size: 60% auto;
+    width: 100%;
+    height: 100%;
 }
 
 .page.head .gradient {
-    position: absolute;
+    background-image: linear-gradient(to right, transparent, darkred 40%, darkred);
+    width: 100%;
+    height: 100%;
 
-    top: 0;
-    left: 24vw;
+    overflow: hidden;
+}
 
-    width: 74vw;
-    height: 96vh;
+.page.head .main-title {
+    background: url("../img/title.png") no-repeat center right;
+    background-size: 80% auto;
 
-    background-image: linear-gradient(to right, transparent, darkred 30%, darkred);
+    margin-top: -70px;
+
+    width: 100%;
+    height: 100%;
 }
 
 .page.head .text-container {
-    position: absolute;
-
     background: #212121;
 
-    top: 65vh;
-    left: 59vw;
+    position: absolute;
 
-    min-height: 100px;
+    right: 30px;
+    bottom: 30px;
 
-    width: 36vw;
-    height: 25vh;
+    width: 500px;
 
-    padding: 2vh 1vw;
+    box-sizing: border-box;
+    padding: 10px;
 }
 
 .page.head .text-container h2, p {
@@ -71,113 +65,137 @@ a {
     text-align: right;
 }
 
-.page.head .main-title {
-    background: url("../img/title.png") no-repeat bottom right;
-    background-size: 100% auto;
-
-    position: absolute;
-
-    left: 15vw;
-    top: 0;
-
-    width: 83vw;
-    height: 83vh;
-}
-
-.main-title h1 {
-    margin: 0;
-}
-
 .page.map {
     background: #212121;
-    /*width: calc(100vw - 100em);*/
-    /*height: calc(100vh - 100em);*/
-    /*padding: 50em;*/
 
+    box-sizing: border-box;
+    padding: 50px;
 }
 
 .page.map .map-container {
     background: url("../img/map.png") no-repeat center center;
     background-size: 100% 100%;
 
-    position: absolute;
+    width: 100%;
+    height: 100%;
 
-    left: 1vw;
-    top: 2vh;
-
-    width: 98vw;
-    height: 96vh;
+    box-sizing: border-box;
+    padding: 20px;
 }
 
 .page.map .map-view {
-    position: absolute;
-
-    left: 2vw;
-    top: 4vh;
-
-    width: 94vw;
-    height: 88vh;
+    width: 100%;
+    height: 100%;
 }
 
-.half-page.foot {
+.footer {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas: "A A A" "B C D";
     background-color: darkred;
 }
 
-.half-page.foot h1 {
-    margin: 0;
+.footer h1 {
+    grid-area: A;
+
+    margin: 10px;
     text-align: center;
     color: #212121;
-
-    position: absolute;
-    top: 2vh;
-
-    width: 100vw;
 }
 
-.contacts-row {
+.footer .contact-cell {
+    width: 100%;
+    height: 100%;
+
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.contact {
+    background-color: #212121;
+    width: 100%;
+    height: 100%;
+
+    padding: 10px;
+    box-sizing: border-box;
+
     display: flex;
     justify-content: space-between;
-
-    position: absolute;
-    width: 98vw;
-    height: 38vh;
-
-    top: 10vh;
-    left: 1vw;
+    flex-direction: row-reverse;
 }
 
-.contacts-row .contact {
-    background-color: #212121;
-    position: relative;
-
-    height: 38vh;
-    width: 32vw;
-}
-
-.contacts-row .contact .qr {
+.contact .qr {
     object-fit: contain;
-    position: absolute;
-
-    top: 2vh;
-    left: 1vw;
-
-    width: 16vw;
-    height: 34vh;
+    width: 50%;
+    height: 100%;
 }
 
-.contacts-row .contact h2 {
+.contact h2 {
     color: #c4dce8;
     margin: 0;
 
     text-align: right;
-    position: relative;
-    top: 2vh;
-    right: 1vw;
 }
 
 @font-face {
   font-family: "Cascadia Code SemiBold";
-  src: url("../fonts/Cascadia Code Semibold 600.otf") format("truetype");
+  src: url("../fonts/Cascadia_Code_SemiBold_600.otf") format("truetype");
   font-style: normal;
   font-weight: normal;
+}
+
+@media screen and (max-width: 900px) {
+    .page.head .image {
+        background-size: auto 100%;
+    }
+
+    .page.head .main-title {
+        background-size: 90%;
+    }
+
+    .contact {
+        display: block;
+    }
+
+    .contact .qr {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 900px) and (max-height: 500px) {
+    .page.head .image {
+        background-size: 60% auto;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .page.head .image {
+        background-size: auto 100%;
+    }
+
+    .page.head .main-title {
+        background-size: 120% auto;
+    }
+
+    .page.head .text-container {
+        width: 270px;
+    }
+
+    .footer {
+        grid-template-rows: repeat(4, auto);
+        grid-template-columns: 1fr;
+        grid-template-areas: "A" "B" "C" "D";
+    }
+
+    .contact {
+        display: flex;
+    }
+
+    .contact .qr {
+        width: 50%;
+        height: 100%;
+    }
 }

@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    const contact = $('.contacts-row .contact');
+    const contact = $('.contact');
 
     contact.hover(function () {
         $(this).stop().animate({

@@ -5,12 +5,14 @@
     {{ block.super }}
     <div class="page head">
         <div class="image">
-            <div class="gradient"></div>
-            <div class="main-title"></div>
-            <div class="text-container">
-                <h2>Проект по Основам Российской Государственности</h2>
-                <hr>
-                <p>студентов ФКН НИУ ВШЭ Бородулина Арсения, Марченко Артёма, Шиляева Даниила</p>
+            <div class="gradient">
+                <div class="main-title">
+                    <div class="text-container">
+                        <h2>Проект по Основам Российской Государственности</h2>
+                        <hr>
+                        <p>студентов ФКН НИУ ВШЭ Бородулина Арсения, Марченко Артёма, Шиляева Даниила</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -21,23 +23,24 @@
         </div>
     </div>
 
-    <div class="half-page foot">
+    <div class="footer">
         <h1>Обратная связь:</h1>
-        <div class="contacts-row">
+        <div class="contact-cell">
             <a href="https://t.me/owouwuwuowo" class="contact" id="persik">
-                <img src="{% static 'main/img/qrs/persik.png' %}" alt="m3tr0" class="qr"/>
-                <h2 class="name">Бородулин</h2>
-                <h2 class="name">Арсений</h2>
+                <h2 class="name">Бородулин<br/>Арсений</h2>
+                <img src="{% static 'main/img/qrs/persik.png' %}" alt="persik" class="qr"/>
             </a>
+        </div>
+        <div class="contact-cell">
             <a href="http://m3tr0.ru" class="contact" id="m3tr0">
+                <h2 class="name">Марченко<br/>Артём</h2>
                 <img src="{% static 'main/img/qrs/m3tr0.png' %}" alt="m3tr0" class="qr"/>
-                <h2 class="name">Марченко</h2>
-                <h2 class="name">Артём</h2>
             </a>
+        </div>
+        <div class="contact-cell">
             <a href="https://t.me/demonbiker14" class="contact" id="daniel">
-                <img src="{% static 'main/img/qrs/daniel.png' %}" alt="m3tr0" class="qr"/>
-                <h2 class="name">Шиляев</h2>
-                <h2 class="name">Даниил</h2>
+                <h2 class="name">Шиляев<br/>Даниил</h2>
+                <img src="{% static 'main/img/qrs/daniel.png' %}" alt="daniel" class="qr"/>
             </a>
         </div>
     </div>
