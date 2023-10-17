@@ -71,8 +71,15 @@
 
 h1, p {
     text-align: inherit;
-    width: 100%;
     color: #c4dce8;
     margin: 10px;
 }
 
+@media screen and (max-width: 600px) {
+    .city-page {
+        grid-template-columns: 100%;
+        grid-template-rows: 60px auto auto auto auto;
+        grid-template-areas: "A" "B" "C" "D" "E";
+        width: 100%;
+    }
+}
