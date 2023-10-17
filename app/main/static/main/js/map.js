@@ -31,7 +31,7 @@ async function initMap() {
 
         const map = new ymaps.Map(map_elem, {
             center: [55.7, 47.6],
-            zoom: 5,
+            zoom: 4,
             type: 'yandex#map',
             controls: []
         });

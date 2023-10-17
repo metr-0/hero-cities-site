@@ -1,73 +1,78 @@
 .city-page {
-    display: flex;
-}
-
-.city-container {
+    display: grid;
     background-color: #212121;
-
-    position: relative;
-
-    width: 94vw;
+    grid-template-columns: 2fr 3fr 60px;
+    grid-template-rows: 2fr 3fr;
+    grid-template-areas:
+            "C B A"
+            "D E A";
     height: 100vh;
+    width: 100%;
 }
 
 .back-button {
     background-color: darkred;
 
-    position: relative;
-
-    width: 6vw;
-    height: 100vh;
+    grid-area: A;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
 }
 
-.photo-container {
+.back-button .back-arrow {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+}
+
+.photo-cell {
+    overflow: hidden;
+
+    box-sizing: border-box;
+    padding: 10px;
+
+    display: flex;
+}
+
+.photo-cell.new {
+    grid-area: C;
+}
+
+.photo-cell.old {
+    grid-area: E;
+}
+
+.photo-cell .photo {
     background: url("../img/map.png") no-repeat center center;
     background-size: 100% 100%;
-    overflow: hidden;
-    position: absolute;
+
+    box-sizing: border-box;
+    padding: 10px;
+
+    max-height: 100%;
+    max-width: 100%;
+
+    margin: auto;
 }
 
-.photo-container.new {
-    width: 30vw;
-    height: 40vh;
-
-    left: 2vw;
-    top: 4vh;
+.name-cell {
+    box-sizing: border-box;
+    padding: 10px;
+    text-align: center;
+    grid-area: B;
 }
 
-.photo-container.old {
-    width: 50vw;
-    height: 50vh;
-
-    left: 42vw;
-    top: 46vh;
+.text-cell {
+    box-sizing: border-box;
+    padding: 10px;
+    text-align: right;
+    grid-area: D;
 }
 
-.photo-container .photo {
-    object-fit: contain;
-    position: relative;
-}
-
-.photo-container .photo.old {
-    left: 1vw;
-    top: 2vh;
-
-    width: 48vw;
-    height: 46vh;
-}
-
-.photo-container .photo.new {
-    left: 1vw;
-    top: 2vh;
-
-    width: 28vw;
-    height: 36vh;
-}
-
-h1.name {
+h1, p {
+    text-align: inherit;
+    width: 100%;
     color: #c4dce8;
-    position: absolute;
-
-    left: 60vw;
-    top: 2vh;
+    margin: 10px;
 }
+

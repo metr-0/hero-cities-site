@@ -9,16 +9,22 @@
 {% block content %}
 {{ block.super }}
     <div class="city-page">
-        <div class="city-container">
-            <h1 class="name">{{ city.name }}</h1>
-            <div class="photo-container old">
-                <img class="photo old" src="{% static 'main/img/background.jpg' %}" alt="hmm"/>
-            </div>
-            <div class="photo-container new">
-                <img class="photo new" src="{% static 'main/img/background.jpg' %}" alt="hmm"/>
-            </div>
+        <div class="name-cell">
+            <h1>{{ city.name }}</h1>
+            <p>{{ city.annotation }}</p>
         </div>
-        <a href="/#map" class="back-button"></a>
+        <div class="photo-cell new">
+            <img src="{{ city.new_image.url }}" alt="new-photo" class="photo"/>
+        </div>
+        <div class="text-cell">
+            <p>{{ city.text }}</p>
+        </div>
+        <div class="photo-cell old">
+            <img src="{{ city.old_image.url }}" alt="old-photo" class="photo"/>
+        </div>
+        <a href="/#map" class="back-button">
+            <img class="back-arrow" src="{% static 'main/img/back_arrow.png' %}" alt="back_arrow"/>
+        </a>
     </div>
 {% endblock %}
 

@@ -21,4 +21,3 @@ class GetCities(View):
         return JsonResponse({
             "data": list(main.models.City.objects.points()),
         }, json_dumps_params={'ensure_ascii': False})
-
