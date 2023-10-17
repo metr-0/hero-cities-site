@@ -30,8 +30,8 @@ async function initMap() {
         map_elem.style.height = `${map_wrapper.clientHeight}`;
 
         const map = new ymaps.Map(map_elem, {
-            center: [55.7, 47.6],
-            zoom: 4,
+            center: [58, 37],
+            zoom: 3,
             type: 'yandex#map',
             controls: []
         });
