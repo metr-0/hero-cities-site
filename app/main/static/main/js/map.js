@@ -54,7 +54,7 @@ async function initMap() {
                         radius: 30
                     },
                     iconContentLayout: ymaps.templateLayoutFactory.createClass(
-                        '<h3 style="color: #121212; margin: 0; font-family: \'Cascadia Code SemiBold\', sans-serif;">$[properties.iconContent]</h3>'
+                        '<h3 style="color: #121212; background-color: #c4dce8; width: max-content; height: max-content; margin: 0; font-family: \'Cascadia Code SemiBold\', sans-serif;">$[properties.iconContent]</h3>'
                     ),
                     iconContentOffset: [25, -5],
                     balloonCloseButton: false,
