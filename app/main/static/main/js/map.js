@@ -41,13 +41,25 @@ async function initMap() {
         for (const city of data) {
             const myGeoObject = new ymaps.Placemark([city.x, city.y],
                 {
-                    iconCaption: city.name,
+                    iconContent: city.name,
                 },
                 {
+                    iconLayout: 'default#imageWithContent',
+                    iconImageHref: '/static/main/img/star.png',
+                    iconImageSize: [40, 60],
+                    iconImageOffset: [-20, -50],
+                    iconShape: {
+                        type: 'Circle',
+                        coordinates: [0, -20],
+                        radius: 30
+                    },
+                    iconContentLayout: ymaps.templateLayoutFactory.createClass(
+                        '<h3 style="color: #121212; margin: 0; font-family: \'Cascadia Code SemiBold\', sans-serif;">$[properties.iconContent]</h3>'
+                    ),
+                    iconContentOffset: [25, -5],
                     balloonCloseButton: false,
                     hideIconOnBalloonOpen: false
-                }
-            );
+            });
             myGeoObject.events.add('click', (event) => {
                 window.open(`/${city.id}`, '_current');
             })
