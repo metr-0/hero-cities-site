@@ -67,6 +67,7 @@
     padding: 10px;
     text-align: right;
     grid-area: D;
+    overflow: scroll;
 }
 
 h1, p {
@@ -81,5 +82,11 @@ h1, p {
         grid-template-rows: 60px auto auto auto auto;
         grid-template-areas: "A" "B" "C" "D" "E";
         width: 100%;
+        min-height: 100vh;
+        height: auto;
+    }
+
+    .text-cell {
+        overflow: visible;
     }
 }
