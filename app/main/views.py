@@ -13,6 +13,11 @@ class CityDetail(DetailView):
     context_object_name = "city"
     template_name = "main/city.html"
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["city"].text = context["city"].text.replace("\n", "<br>")
+        return context
+
 
 class GetCities(View):
     template_name = "main/api.html"

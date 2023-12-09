@@ -17,7 +17,7 @@
             <img src="{{ city.new_image.url }}" alt="new-photo" class="photo"/>
         </div>
         <div class="text-cell">
-            <p>{{ city.text }}</p>
+            <p>{{ city.text | safe }}</p>
         </div>
         <div class="photo-cell old">
             <img src="{{ city.old_image.url }}" alt="old-photo" class="photo"/>
