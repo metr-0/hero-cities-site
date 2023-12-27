@@ -92,8 +92,8 @@ a {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto auto;
-    grid-template-areas: "A A A" "B C D";
+    grid-template-rows: auto auto auto;
+    grid-template-areas: "A A A" "B C D" ". E .";
     background-color: darkred;
 }
 
@@ -185,9 +185,9 @@ a {
     }
 
     .footer {
-        grid-template-rows: repeat(4, auto);
+        grid-template-rows: repeat(5, auto);
         grid-template-columns: 1fr;
-        grid-template-areas: "A" "B" "C" "D";
+        grid-template-areas: "A" "B" "C" "D" "E";
     }
 
     .contact {
